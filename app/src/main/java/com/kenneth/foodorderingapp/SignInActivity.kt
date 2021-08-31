@@ -28,11 +28,11 @@ class SignInActivity : AppCompatActivity() {
             gotoSignUp()
         }
 
-//        checkOutB = binding.btnCheckOutB
+        checkOutB = binding.btnFragment
 
-//        checkOutB.setOnClickListener {
-//           gotoCheckOutB()
-//        }
+        checkOutB.setOnClickListener {
+           gotoFragments()
+        }
 
     }
 
@@ -46,8 +46,8 @@ class SignInActivity : AppCompatActivity() {
         startActivity(myIntent)
     }
 
-    private fun gotoCheckOutB() {
-        val myIntent = Intent(this, LandingPage::class.java)
+    private fun gotoFragments() {
+        val myIntent = Intent(this, MainActivity::class.java)
         startActivity(myIntent)
     }
 }
