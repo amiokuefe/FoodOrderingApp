@@ -1,9 +1,12 @@
 package com.kenneth.foodorderingapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kenneth.foodorderingapp.databinding.ActivityLandingPageBinding
 import com.kenneth.foodorderingapp.viewmodelsAndAdapters.FoodViewModel
 import com.kenneth.foodorderingapp.viewmodelsAndAdapters.MealAdapter
@@ -15,6 +18,7 @@ class LandingPage : AppCompatActivity() {
     private lateinit var binding: ActivityLandingPageBinding
     private lateinit var myMealAdapter: MealAdapter
     private lateinit var viewModelFood: FoodViewModel
+    private lateinit var bottomNavigationView: BottomNavigationView
 
 
 
@@ -83,6 +87,45 @@ class LandingPage : AppCompatActivity() {
             myMealAdapter.notifyDataSetChanged()
         })
         // get Response
+
+//        BottomNavigationView.OnNavigationItemSelectedListener{ item ->
+//            when(item.itemId) {
+//                R.id.navigation_favorites -> {
+//                    // Respond to navigation item 1 click
+//
+//                    true
+//                }
+//                R.id.navigation_cart -> {
+//                    // Respond to navigation item 2 click
+//                    val intent = Intent(this, CartActivity::class.java)
+//                    startActivity(intent)
+//                    true
+//                }
+//                else -> false
+//            }
+
+        
+        bottomNavigationView.selectedItemId = R.id.navigation_home
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_favorites -> {
+                    // Respond to navigation item 1 click
+
+                    true
+                }
+                R.id.navigation_cart -> {
+                    // Respond to navigation item 2 click
+                    val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
+
+
 
 
 //        binding.recyclerViewMeal.adapter = myMealAdapter
